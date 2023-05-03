@@ -88,20 +88,60 @@ function raceEvent(sx) {
         i.type = "checkbox"
 
 };
-//________
-//----User Input Row----
-document.getElementById('add');
+//----Dynamic Add Modal----
+function modalLabels(){
+    const a = document.getElementById('modal');
+    const b = document.createElement('input');
+    const c = document.createElement('label');
+    const d = document.createElement('br');
+    b.type = 'radio'
+    a.appendChild(b);
+    a.appendChild(c);
+    a.appendChild(d);
 
-raceEvent(0)
-raceEvent(1)
-raceEvent(2)
-raceEvent(3)
-raceEvent(4)
-raceEvent(5)
-raceEvent(6)
-raceEvent(7)
-raceEvent(8)
-raceEvent(9)
+}
+modalLabels()
+//----User Input Row----
+// document.getElementById('add').addEventListener('click',openModal);
+
+function newRow(){
+    console.log('click')
+    raceEvent(0)
+}
+
+
+// ----modal----
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const openModalBtn = document.querySelector(".btn-open");
+const closeModalBtn = document.querySelector(".btn-close");
+
+// close modal function
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+
+// close the modal when the close button and overlay is clicked
+closeModalBtn.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+
+// close modal when the Esc key is pressed
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+});
+
+// open modal function
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+// open modal event
+document.getElementById('add').addEventListener('click',openModal);
+// openModalBtn.addEventListener("click", openModal);
+//----modal----
 
 
 // Get ICS text however you like, example below
