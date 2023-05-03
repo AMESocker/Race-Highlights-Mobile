@@ -1,0 +1,68 @@
+* {
+    margin: 0px;
+}
+
+main {
+    width: 410px;
+    height: 805px;
+    /* background-color: black; */
+    border: 5px solid black;
+}
+#add {
+    position: absolute;
+    left: 380px;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+#title {
+    display: flex;
+    flex-direction: row;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    justify-content: center;
+    font-family: "Racing Sans One", cursive;
+}
+
+#list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    font-family: "Titillium Web";
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-weight: bolder;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    /* border: 2px solid; */
+    width: 412px;
+    display: flex;
+    justify-content: center;
+}
+
+tr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid;
+    width: 412px;
+}
+
+td,
+th {
+    
+    margin: 0px 5px 0px 5px;
+    padding: 0px 10px 0px 10px
+}
+img {
+    margin:3px;
+    width:80px;
+}
