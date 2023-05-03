@@ -1,6 +1,6 @@
 let logo = [
     {
-        series: 'F1',
+        series: 'Formula 1',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/420px-F1.svg.png'
     }, {
         series: 'F2',
@@ -27,7 +27,7 @@ let logo = [
         series: 'W2RC',
         image: 'https://upload.wikimedia.org/wikipedia/en/d/d2/World_Rally-Raid_Championship_logo.png'
     }, {
-        series: 'SMX',
+        series: 'SuperMotoCross',
         image: 'https://www.supermotocross.com/wp-content/uploads/2022/12/MicrosoftTeams-image-96.png'
     }
 ]
@@ -90,14 +90,20 @@ function raceEvent(sx) {
 };
 //----Dynamic Add Modal----
 function modalLabels(){
-    const a = document.getElementById('modal');
-    const b = document.createElement('input');
-    const c = document.createElement('label');
-    const d = document.createElement('br');
-    b.type = 'radio'
-    a.appendChild(b);
-    a.appendChild(c);
-    a.appendChild(d);
+    for (let i = 0; i < logo.length; i++) {
+        const a = document.getElementById('modal');
+        const b = document.createElement('input');
+        const c = document.createElement('label');
+        const d = document.createElement('br');
+        b.name = 'new'
+        b.id = logo[i].series
+        b.type = 'radio'
+        c.innerHTML = logo[i].series
+        a.appendChild(b);
+        a.appendChild(c);
+        a.appendChild(d);
+    }
+    const e = document.createElement('button');
 
 }
 modalLabels()
