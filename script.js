@@ -89,33 +89,38 @@ function raceEvent(sx) {
 
 };
 //----Dynamic Add Modal----
-function modalLabels(){
-    for (let i = 0; i < logo.length; i++) {
-        const a = document.getElementById('modal');
-        const b = document.createElement('input');
-        const c = document.createElement('label');
-        const d = document.createElement('br');
-        b.name = 'new'
-        b.id = logo[i].series
-        b.type = 'radio'
-        c.innerHTML = logo[i].series
-        a.appendChild(b);
-        a.appendChild(c);
-        a.appendChild(d);
-    }
-    const e = document.createElement('button');
+// function modalLabels(){
+//     const a = document.getElementById('modal');
+//     for (let i = 0; i < logo.length; i++) {
+//         const b = document.createElement('input');
+//         const c = document.createElement('label');
+//         const d = document.createElement('br');
+//         b.name = 'new'
+//         b.id = logo[i].series
+//         b.type = 'radio'
+//         c.innerHTML = logo[i].series
+//         a.appendChild(b);
+//         a.appendChild(c);
+//         a.appendChild(d);
+//     }
+//     const e = document.createElement('button');
+//     a.appendChild(e)
+//     e.setAttribute('class','btn')
+//     e.setAttribute('id','new')
+//     e.innerHTML = 'Add'
 
-}
-modalLabels()
+// }
+// modalLabels()
 //----User Input Row----
-// document.getElementById('add').addEventListener('click',openModal);
+document.getElementById('add').addEventListener('click',newRow);
 
 function newRow(){
+    const a = document.getElementById('list');
+
     console.log('click')
-    raceEvent(0)
 }
 
-
+/*
 // ----modal----
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
@@ -147,6 +152,7 @@ const openModal = function () {
 // open modal event
 document.getElementById('add').addEventListener('click',openModal);
 // openModalBtn.addEventListener("click", openModal);
+*/
 //----modal----
 
 
