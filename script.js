@@ -62,7 +62,7 @@ console.log(icsRaceData[0])
 */
 
 //----Dynamic Add Row--------
-function raceEvent(sx) {
+function raceEvent(sx,ed) {
     let logoImage = logo[sx].image
     const a = document.getElementById('list');
     const b = document.createElement('tr');
@@ -78,7 +78,7 @@ function raceEvent(sx) {
     c.appendChild(d);
     d.src = logoImage;
     b.appendChild(e);
-    e.innerHTML = "Date"
+    e.innerHTML = ed
     b.appendChild(f);
     f.innerHTML = "Event"
     b.appendChild(g);
@@ -89,7 +89,7 @@ function raceEvent(sx) {
 
 };
 
-//----Dynamic Add Modal----
+//----Dynamic Add Series----
 
 const a = document.getElementById('addEvent');
 const d = document.createElement('br');
@@ -108,28 +108,48 @@ for (let i = 0; i < logo.length; i++) {
     a.appendChild(d);
 }
 a.appendChild(d);
+
+//----add date----
+const dateSelect = document.createElement('input');
+a.appendChild(dateSelect);
+dateSelect.setAttribute('type','date');
+dateSelect.setAttribute('id','date');
+dateSelect.setAttribute('min','2023-01-01');
+dateSelect.setAttribute('max','2023-12-31');
+a.appendChild(d);
+
 //----add button----
 const e = document.createElement('div');
 a.appendChild(e)
 e.setAttribute('class', 'btn')
 e.setAttribute('id', 'new')
 e.innerHTML = 'Add'
+
+//----Date Value-----
+let date;
+function dateValue(){
+    let v = document.getElementById('date');
+    let vArr = v.value.split('-')
+    date = vArr[1]+' '+vArr[2]
+    console.log(date)
+}
 //----Radio Button Value----
 function buttonSeries(){
     let value = document.getElementsByName('new');
     for (let i = 0; i < value.length; i++) {
         if(value[i].checked){
-            raceEvent(value[i].id)
+            dateValue()
+            raceEvent(value[i].id,date)
         }
     }
     a.setAttribute('style', 'display:none')
 }
 
-document.getElementById('new').addEventListener('click', ()=>{buttonSeries()});
+document.getElementById('new').addEventListener('click', ()=>{newRow()});
 
 function newRow() {
-    // const a = document.getElementById('list');
-    raceEvent()
+    buttonSeries()
+    
     console.log('click')
 
 }
@@ -139,46 +159,11 @@ function modalLabels() {
     a.setAttribute('style', 'display:contents')
     console.log('Test')
 }
+
 //----User Input Row----
 document.getElementById('add').addEventListener('click', modalLabels);
 
 
 
-/*
-// ----modal----
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
-const openModalBtn = document.querySelector(".btn-open");
-const closeModalBtn = document.querySelector(".btn-close");
-
-// close modal function
-const closeModal = function () {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
-};
-
-// close the modal when the close button and overlay is clicked
-closeModalBtn.addEventListener("click", closeModal);
-overlay.addEventListener("click", closeModal);
-
-// close modal when the Esc key is pressed
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-    closeModal();
-  }
-});
-
-// open modal function
-const openModal = function () {
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
-};
-// open modal event
-document.getElementById('add').addEventListener('click',openModal);
-// openModalBtn.addEventListener("click", openModal);
-*/
-//----modal----
 
 
-// Get ICS text however you like, example below
-// Make sure you have the right CORS settings if needed
