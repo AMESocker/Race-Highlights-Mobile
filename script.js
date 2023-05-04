@@ -28,7 +28,7 @@ let logo = [
         image: 'https://upload.wikimedia.org/wikipedia/en/d/d2/World_Rally-Raid_Championship_logo.png'
     }, {
         series: 'SuperMotoCross',
-        image: 'https://www.supermotocross.com/wp-content/uploads/2022/12/MicrosoftTeams-image-96.png'
+        image: 'https://www.supermotocross.com/wp-content/uploads/2023/01/SMX-League-Logo.png'
     }
 ]
 //F1, F2, F3, Formula-E, Indycar, WRC, IMSA, Supercars, World Rally Raid Championship, SuperMotocross
@@ -88,34 +88,57 @@ function raceEvent(sx) {
         i.type = "checkbox"
 
 };
+raceEvent(0)
+raceEvent(1)
+raceEvent(2)
+raceEvent(3)
+raceEvent(4)
+raceEvent(5)
+raceEvent(6)
+raceEvent(7)
+raceEvent(8)
+raceEvent(9)
+let test;
 //----Dynamic Add Modal----
-// function modalLabels(){
-//     const a = document.getElementById('modal');
-//     for (let i = 0; i < logo.length; i++) {
-//         const b = document.createElement('input');
-//         const c = document.createElement('label');
-//         const d = document.createElement('br');
-//         b.name = 'new'
-//         b.id = logo[i].series
-//         b.type = 'radio'
-//         c.innerHTML = logo[i].series
-//         a.appendChild(b);
-//         a.appendChild(c);
-//         a.appendChild(d);
-//     }
-//     const e = document.createElement('button');
-//     a.appendChild(e)
-//     e.setAttribute('class','btn')
-//     e.setAttribute('id','new')
-//     e.innerHTML = 'Add'
+function modalLabels(){
+    const a = document.getElementById('addEvent');
+    const d = document.createElement('br');
+    //----Series----
+    for (let i = 0; i < logo.length; i++) {
+        const b = document.createElement('input');
+        const c = document.createElement('label');
+        const d = document.createElement('br');
+        b.name = 'new'
+        b.id = logo[i].series
+        b.type = 'radio'
+        c.innerHTML = logo[i].series
+        a.appendChild(b);
+        a.appendChild(c);
+        c.setAttribute('for',logo[i].series)
+        a.appendChild(d);
+    }
+    a.appendChild(d);
+    //----add button----
+    const e = document.createElement('button');
+    a.appendChild(e)
+    e.setAttribute('class','btn')
+    e.setAttribute('id','new')
+    e.innerHTML = 'Add'
 
-// }
+    document.getElementById('new').addEventListener('click',newRow);
+    function newRow(){
+        // const a = document.getElementById('list');
+    
+        test = console.log('click')
+    }
+}
+console.log(test)
 // modalLabels()
 //----User Input Row----
-document.getElementById('add').addEventListener('click',newRow);
+document.getElementById('add').addEventListener('click',modalLabels);
 
 function newRow(){
-    const a = document.getElementById('list');
+    // const a = document.getElementById('list');
 
     console.log('click')
 }
