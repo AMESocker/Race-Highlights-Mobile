@@ -64,28 +64,28 @@ console.log(icsRaceData[0])
 //----Dynamic Add Row--------
 function raceEvent(sx) {
     let logoImage = logo[sx].image
-        const a = document.getElementById('list');
-        const b = document.createElement('tr');
-        const c = document.createElement('td');
-        const d = document.createElement('img')
-        const e = document.createElement('td');
-        const f = document.createElement('td');
-        const g = document.createElement('td');
-        const h = document.createElement('td');
-        const i = document.createElement('input');
-        a.appendChild(b);
-        b.appendChild(c);
-        c.appendChild(d);
-        d.src = logoImage;
-        b.appendChild(e);
-        e.innerHTML = "Date"
-        b.appendChild(f);
-        f.innerHTML = "Event"
-        b.appendChild(g);
-        g.innerHTML = "Session"
-        b.appendChild(h);
-        h.appendChild(i);
-        i.type = "checkbox"
+    const a = document.getElementById('list');
+    const b = document.createElement('tr');
+    const c = document.createElement('td');
+    const d = document.createElement('img')
+    const e = document.createElement('td');
+    const f = document.createElement('td');
+    const g = document.createElement('td');
+    const h = document.createElement('td');
+    const i = document.createElement('input');
+    a.appendChild(b);
+    b.appendChild(c);
+    c.appendChild(d);
+    d.src = logoImage;
+    b.appendChild(e);
+    e.innerHTML = "Date"
+    b.appendChild(f);
+    f.innerHTML = "Event"
+    b.appendChild(g);
+    g.innerHTML = "Session"
+    b.appendChild(h);
+    h.appendChild(i);
+    i.type = "checkbox"
 
 };
 raceEvent(0)
@@ -98,50 +98,59 @@ raceEvent(6)
 raceEvent(7)
 raceEvent(8)
 raceEvent(9)
-let test;
 //----Dynamic Add Modal----
-function modalLabels(){
-    const a = document.getElementById('addEvent');
+
+const a = document.getElementById('addEvent');
+const d = document.createElement('br');
+//----Series----
+for (let i = 0; i < logo.length; i++) {
+    const b = document.createElement('input');
+    const c = document.createElement('label');
     const d = document.createElement('br');
-    //----Series----
-    for (let i = 0; i < logo.length; i++) {
-        const b = document.createElement('input');
-        const c = document.createElement('label');
-        const d = document.createElement('br');
-        b.name = 'new'
-        b.id = logo[i].series
-        b.type = 'radio'
-        c.innerHTML = logo[i].series
-        a.appendChild(b);
-        a.appendChild(c);
-        c.setAttribute('for',logo[i].series)
-        a.appendChild(d);
-    }
+    b.name = 'new'
+    b.id = [i]
+    b.type = 'radio'
+    c.innerHTML = logo[i].series
+    a.appendChild(b);
+    a.appendChild(c);
+    c.setAttribute('for', logo[i].series)
     a.appendChild(d);
-    //----add button----
-    const e = document.createElement('button');
-    a.appendChild(e)
-    e.setAttribute('class','btn')
-    e.setAttribute('id','new')
-    e.innerHTML = 'Add'
-
-    document.getElementById('new').addEventListener('click',newRow);
-    function newRow(){
-        // const a = document.getElementById('list');
-    
-        test = console.log('click')
+}
+a.appendChild(d);
+//----add button----
+const e = document.createElement('div');
+a.appendChild(e)
+e.setAttribute('class', 'btn')
+e.setAttribute('id', 'new')
+e.innerHTML = 'Add'
+//----Radio Button Value----
+function buttonSeries(){
+    let value = document.getElementsByName('new');
+    for (let i = 0; i < value.length; i++) {
+        if(value[i].checked){
+            raceEvent(value[i].id)
+        }
     }
 }
-console.log(test)
-// modalLabels()
-//----User Input Row----
-document.getElementById('add').addEventListener('click',modalLabels);
 
-function newRow(){
+document.getElementById('new').addEventListener('click', ()=>{buttonSeries()});
+
+function newRow() {
     // const a = document.getElementById('list');
-
+    raceEvent()
     console.log('click')
+
 }
+// }
+// modalLabels()
+function modalLabels() {
+    a.setAttribute('style', 'display:contents')
+    console.log('Test')
+}
+//----User Input Row----
+document.getElementById('add').addEventListener('click', modalLabels);
+
+
 
 /*
 // ----modal----

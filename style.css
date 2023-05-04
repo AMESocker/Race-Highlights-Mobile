@@ -71,6 +71,7 @@
     border-radius: 5px;
     text-align: center;
     font-size: 1em;
+    cursor: pointer;
   }
   
 
@@ -137,6 +138,7 @@ main {
     z-index: 2;
     top: 20%;
     background-color: white;
+    display: none;
 }
 div {
     display: flex;
