@@ -122,6 +122,7 @@ function buttonSeries(){
             raceEvent(value[i].id)
         }
     }
+    a.setAttribute('style', 'display:none')
 }
 
 document.getElementById('new').addEventListener('click', ()=>{buttonSeries()});
