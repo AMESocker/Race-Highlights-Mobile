@@ -88,16 +88,7 @@ function raceEvent(sx) {
     i.type = "checkbox"
 
 };
-raceEvent(0)
-raceEvent(1)
-raceEvent(2)
-raceEvent(3)
-raceEvent(4)
-raceEvent(5)
-raceEvent(6)
-raceEvent(7)
-raceEvent(8)
-raceEvent(9)
+
 //----Dynamic Add Modal----
 
 const a = document.getElementById('addEvent');
