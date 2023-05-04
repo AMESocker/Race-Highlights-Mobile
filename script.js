@@ -32,7 +32,22 @@ let logo = [
     }
 ]
 //F1, F2, F3, Formula-E, Indycar, WRC, IMSA, Supercars, World Rally Raid Championship, SuperMotocross
+//----Dark Mode----
+function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+    var a = document.getElementById('dark');
+    // a.classList.toggle("dark-switch");
+    if(a.innerHTML == 'Dark'){
+        a.innerHTML = 'Light'
+        a.setAttribute('style','color:white')
+    }else{
+        a.innerHTML = 'Dark'
+        a.setAttribute('style','color:black;background-color: white');
+        // a.setAttribute('style','background-color: white')
+    }
 
+  }
 //--------ICS Import--------
 /*
 // import icsToJson from './icsToJson'
@@ -60,9 +75,13 @@ console.log([...icsRaceData])
 console.log(icsRaceData[0])
 // console.log(convert(cal).Array)
 */
-
+let saveData = []
+console.log(saveData)
+localStorage.getItem("Race Event",saveData)
+console.log(localStorage)
+// raceEvent(saveData.seriesNum, saveData.date )
 //----Dynamic Add Row--------
-function raceEvent(sx,ed) {
+function raceEvent(sx, ed) {
     let logoImage = logo[sx].image
     const a = document.getElementById('list');
     const b = document.createElement('tr');
@@ -112,10 +131,10 @@ a.appendChild(d);
 //----add date----
 const dateSelect = document.createElement('input');
 a.appendChild(dateSelect);
-dateSelect.setAttribute('type','date');
-dateSelect.setAttribute('id','date');
-dateSelect.setAttribute('min','2023-01-01');
-dateSelect.setAttribute('max','2023-12-31');
+dateSelect.setAttribute('type', 'date');
+dateSelect.setAttribute('id', 'date');
+dateSelect.setAttribute('min', '2023-01-01');
+dateSelect.setAttribute('max', '2023-12-31');
 a.appendChild(d);
 
 //----add button----
@@ -127,29 +146,34 @@ e.innerHTML = 'Add'
 
 //----Date Value-----
 let date;
-function dateValue(){
+function dateValue() {
     let v = document.getElementById('date');
     let vArr = v.value.split('-')
-    date = vArr[1]+' '+vArr[2]
+    date = vArr[1] + ' ' + vArr[2]
     console.log(date)
 }
+
 //----Radio Button Value----
-function buttonSeries(){
+function buttonSeries() {
     let value = document.getElementsByName('new');
     for (let i = 0; i < value.length; i++) {
-        if(value[i].checked){
+        if (value[i].checked) {
             dateValue()
-            raceEvent(value[i].id,date)
+            let seriesNum = value[i].id;
+            raceEvent(value[i].id, date)
+            saveData.push({ seriesNum, date })
+            console.log(saveData)
+            localStorage.setItem("Race Event",saveData)
         }
     }
     a.setAttribute('style', 'display:none')
 }
 
-document.getElementById('new').addEventListener('click', ()=>{newRow()});
+document.getElementById('new').addEventListener('click', () => { newRow() });
 
 function newRow() {
     buttonSeries()
-    
+
     console.log('click')
 
 }
