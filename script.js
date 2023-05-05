@@ -76,9 +76,21 @@ console.log(icsRaceData[0])
 // console.log(convert(cal).Array)
 */
 let saveData = []
-console.log(saveData)
-localStorage.getItem("Race Event",saveData)
-console.log(localStorage)
+let savedData = localStorage.getItem("Race Event",saveData)
+
+console.log(!saveData)
+console.log(!!savedData)
+//----Load Saved Data----
+if (!!savedData) {
+    let splitSavedData = savedData.split(',');
+    console.log(splitSavedData)
+    for (let i = 0; i < splitSavedData.length; i++) {
+        let f = splitSavedData[i].split('-');
+        console.log(f)
+        raceEvent(f[0], f[1])
+    }
+}
+
 // raceEvent(saveData.seriesNum, saveData.date )
 //----Dynamic Add Row--------
 function raceEvent(sx, ed) {
@@ -159,22 +171,29 @@ function buttonSeries() {
     for (let i = 0; i < value.length; i++) {
         if (value[i].checked) {
             dateValue()
-            let seriesNum = value[i].id;
             raceEvent(value[i].id, date)
-            saveData.push({ seriesNum, date })
-            console.log(saveData)
+            let seriesNum = value[i].id;
+            let serStr = seriesNum.toString()
+            let datStr = date.toString()
+            let strSav = serStr+'-'+datStr
+          console.log(saveData)
+            saveData.push( strSav )
+
             localStorage.setItem("Race Event",saveData)
+            console.log(strSav)
         }
     }
     a.setAttribute('style', 'display:none')
+    console.log(saveData)
+    console.log(localStorage)
 }
+
 
 document.getElementById('new').addEventListener('click', () => { newRow() });
 
 function newRow() {
     buttonSeries()
 
-    console.log('click')
 
 }
 // }
