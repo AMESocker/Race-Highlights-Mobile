@@ -158,6 +158,13 @@ dateSelect.setAttribute('min', '2023-01-01');
 dateSelect.setAttribute('max', '2023-12-31');
 a.appendChild(d);
 
+//----add Event----
+const eventForm = document.createElement('input');
+a.appendChild(eventForm);
+eventForm.setAttribute('type','text')
+eventForm.innerHTML = 'Event'
+a.appendChild(d)
+
 //----add button----
 const e = document.createElement('div');
 a.appendChild(e)
