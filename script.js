@@ -95,13 +95,13 @@ if (savedData) {
     for (let i = 0; i < splitSavedData.length; i++) {
         let f = splitSavedData[i].split('-');
         // console.log(f)
-        raceEvent(f[0], f[1])
+        raceEvent(f[0], f[1],f[2])
     }
 }
 
 // raceEvent(saveData.seriesNum, saveData.date )
 //----Dynamic Add Row--------
-function raceEvent(sx, ed) {
+function raceEvent(sx, ed, rv) {
     let logoImage = logo[sx].image
     const a = document.getElementById('list');
     const b = document.createElement('tr');
@@ -119,7 +119,7 @@ function raceEvent(sx, ed) {
     b.appendChild(e);
     e.innerHTML = ed
     b.appendChild(f);
-    f.innerHTML = "Event"
+    f.innerHTML = rv
     b.appendChild(g);
     g.innerHTML = "Session"
     b.appendChild(h);
@@ -156,13 +156,21 @@ dateSelect.setAttribute('type', 'date');
 dateSelect.setAttribute('id', 'date');
 dateSelect.setAttribute('min', '2023-01-01');
 dateSelect.setAttribute('max', '2023-12-31');
-a.appendChild(d);
+a.appendChild(document.createElement('br'));
 
 //----add Event----
 const eventForm = document.createElement('input');
 a.appendChild(eventForm);
 eventForm.setAttribute('type','text')
-eventForm.innerHTML = 'Event'
+eventForm.setAttribute('id','rEvent')
+eventForm.setAttribute('placeholder','Event')
+a.appendChild(d)
+
+//----add Session----
+const sessionForm = document.createElement('input');
+a.appendChild(sessionForm);
+sessionForm.setAttribute('type','text')
+sessionForm.setAttribute('placeholder','Session')
 a.appendChild(d)
 
 //----add button----
@@ -181,20 +189,29 @@ function dateValue() {
     // console.log(date)
 }
 
+//----Event Value----
+let rEvent;
+function eventValue(){
+    let ev = document.getElementById('rEvent')
+    console.log(ev)
+    rEvent = ev.value
+}
+
 //----Radio Button Value----
 function buttonSeries() {
     let value = document.getElementsByName('new');
     for (let i = 0; i < value.length; i++) {
         if (value[i].checked) {
             dateValue()
-            raceEvent(value[i].id, date)
+            eventValue()
+            raceEvent(value[i].id, date, rEvent)
             //value of radio box
             let seriesNum = value[i].id;
             //change values to a string
             let serStr = seriesNum.toString()
             let datStr = date.toString()
             //combine data
-            let strSav = serStr+'-'+datStr
+            let strSav = serStr+'-'+datStr+'-'+rEvent
             // if (savedData){
             //     splitSavedData.push(strSav)
             //     localStorage.setItem("Race Event",splitSavedData)
