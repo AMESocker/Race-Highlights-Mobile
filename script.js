@@ -32,6 +32,7 @@ let logo = [
     }
 ]
 //F1, F2, F3, Formula-E, Indycar, WRC, IMSA, Supercars, World Rally Raid Championship, SuperMotocross
+
 //----Dark Mode----
 function myFunction() {
     var element = document.body;
@@ -75,18 +76,25 @@ console.log([...icsRaceData])
 console.log(icsRaceData[0])
 // console.log(convert(cal).Array)
 */
+
 let saveData = []
 let savedData = localStorage.getItem("Race Event",saveData)
-
-console.log(!saveData)
-console.log(!!savedData)
+if(savedData){
+    console.log('Data')
+    saveData = savedData
+}else{
+    console.log('no data')
+}
+console.log(saveData)
+console.log(savedData)
 //----Load Saved Data----
-if (!!savedData) {
+if (savedData) {
     let splitSavedData = savedData.split(',');
+    saveData = splitSavedData
     console.log(splitSavedData)
     for (let i = 0; i < splitSavedData.length; i++) {
         let f = splitSavedData[i].split('-');
-        console.log(f)
+        // console.log(f)
         raceEvent(f[0], f[1])
     }
 }
@@ -124,7 +132,8 @@ function raceEvent(sx, ed) {
 
 const a = document.getElementById('addEvent');
 const d = document.createElement('br');
-//----Series----
+
+//----Series Selection----
 for (let i = 0; i < logo.length; i++) {
     const b = document.createElement('input');
     const c = document.createElement('label');
@@ -162,7 +171,7 @@ function dateValue() {
     let v = document.getElementById('date');
     let vArr = v.value.split('-')
     date = vArr[1] + ' ' + vArr[2]
-    console.log(date)
+    // console.log(date)
 }
 
 //----Radio Button Value----
@@ -172,14 +181,21 @@ function buttonSeries() {
         if (value[i].checked) {
             dateValue()
             raceEvent(value[i].id, date)
+            //value of radio box
             let seriesNum = value[i].id;
+            //change values to a string
             let serStr = seriesNum.toString()
             let datStr = date.toString()
+            //combine data
             let strSav = serStr+'-'+datStr
-          console.log(saveData)
-            saveData.push( strSav )
+            // if (savedData){
+            //     splitSavedData.push(strSav)
+            //     localStorage.setItem("Race Event",splitSavedData)
 
-            localStorage.setItem("Race Event",saveData)
+            // }else{
+                saveData.push( strSav )
+                localStorage.setItem("Race Event",saveData)
+            // }
             console.log(strSav)
         }
     }
@@ -200,7 +216,7 @@ function newRow() {
 // modalLabels()
 function modalLabels() {
     a.setAttribute('style', 'display:contents')
-    console.log('Test')
+    // console.log('Test')
 }
 
 //----User Input Row----
