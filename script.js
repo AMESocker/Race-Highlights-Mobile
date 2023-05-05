@@ -95,13 +95,13 @@ if (savedData) {
     for (let i = 0; i < splitSavedData.length; i++) {
         let f = splitSavedData[i].split('-');
         // console.log(f)
-        raceEvent(f[0], f[1],f[2])
+        raceEvent(f[0], f[1],f[2],f[3])
     }
 }
 
 // raceEvent(saveData.seriesNum, saveData.date )
 //----Dynamic Add Row--------
-function raceEvent(sx, ed, rv) {
+function raceEvent(sx, ed, rv, rs) {
     let logoImage = logo[sx].image
     const a = document.getElementById('list');
     const b = document.createElement('tr');
@@ -121,7 +121,7 @@ function raceEvent(sx, ed, rv) {
     b.appendChild(f);
     f.innerHTML = rv
     b.appendChild(g);
-    g.innerHTML = "Session"
+    g.innerHTML = rs
     b.appendChild(h);
     h.appendChild(i);
     i.type = "checkbox"
@@ -170,6 +170,7 @@ a.appendChild(d)
 const sessionForm = document.createElement('input');
 a.appendChild(sessionForm);
 sessionForm.setAttribute('type','text')
+sessionForm.setAttribute('id','rSession')
 sessionForm.setAttribute('placeholder','Session')
 a.appendChild(d)
 
@@ -193,10 +194,15 @@ function dateValue() {
 let rEvent;
 function eventValue(){
     let ev = document.getElementById('rEvent')
-    console.log(ev)
     rEvent = ev.value
 }
 
+//----Session Value----
+let sEvent;
+function sessionValue(){
+    let sv = document.getElementById('rSession');
+    sEvent = sv.value
+}
 //----Radio Button Value----
 function buttonSeries() {
     let value = document.getElementsByName('new');
@@ -204,14 +210,15 @@ function buttonSeries() {
         if (value[i].checked) {
             dateValue()
             eventValue()
-            raceEvent(value[i].id, date, rEvent)
+            sessionValue()
+            raceEvent(value[i].id, date, rEvent, sEvent)
             //value of radio box
             let seriesNum = value[i].id;
             //change values to a string
             let serStr = seriesNum.toString()
             let datStr = date.toString()
             //combine data
-            let strSav = serStr+'-'+datStr+'-'+rEvent
+            let strSav = serStr+'-'+datStr+'-'+rEvent+'-'+sEvent
             // if (savedData){
             //     splitSavedData.push(strSav)
             //     localStorage.setItem("Race Event",splitSavedData)
