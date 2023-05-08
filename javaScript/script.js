@@ -5,13 +5,27 @@ document.getElementById('add').addEventListener('click', modalLabels);
 let watchedValue;
 
 function watched(){
-    let wv = document.querySelector(this.dataset)
-    console.log(raceEvent(this))
-    for (let i = 0; i < saveData.length; i++) {
-    // watchedValue = wv
-        // console.log(watchedValue)
-        console.log(saveData[this])
-    }
+    // let thisRow = saveData.splice(this.id, 1);
+    // console.log(saveData.split('-'))
+    console.log(saveData)
+
+    // let tabVal = document.querySelector('table');
+    // let cv = tabVal.getElementsByTagName('input')
+    // for (var i = 0; i < cv.length; i++) {
+    //     cv[i].onclick = function () {
+    //         for (var i = 0; i < cv.length; i++) {
+    //             console.log(this)
+    //             // if (cv[i] != this && this.checked) {
+    //             //     cv[i].checked = false;
+    //             // }
+    //         }
+    //     };
+    // }
+    // for (let i = 0; i < tabVal.length; i++) {
+    // // watchedValue = tabVal
+    //     console.log(tabVal)
+    //     console.log(tabVal[i])
+    // }
 }
 
 document.getElementById('new').addEventListener('click', () => { newRow() });
@@ -29,6 +43,6 @@ function modalLabels() {
 //----Delete Event----
 function deleteEvent(){
     console.log('Delete')
-    console.log(this.id)
+    console.log(this.dataset)
 }
 //----User Input Row----

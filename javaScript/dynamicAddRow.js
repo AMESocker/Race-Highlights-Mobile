@@ -2,7 +2,7 @@
 function raceEvent(sx, ed, rv, rs) {
     let logoImage = logo[sx].image
     const edNs = ed.replace(' ','')
-    console.log(edNs)
+    // console.log(edNs)
     const j = sx+edNs+rv+rs;
     const a = document.getElementById('list');
     const b = document.createElement('tr');
@@ -28,7 +28,7 @@ function raceEvent(sx, ed, rv, rs) {
     b.appendChild(h);
     h.appendChild(i);
     i.type = "checkbox"
-    i.dataset = j
+    i.setAttribute('id',j)
     i.setAttribute('onclick','watched()')
 
 };
