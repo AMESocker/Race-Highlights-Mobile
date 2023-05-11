@@ -4,10 +4,7 @@ document.getElementById('add').addEventListener('click', modalLabels);
 
 let watchedValue;
 
-function watched(){
-    // let thisRow = saveData.splice(this.id, 1);
-    // console.log(saveData.split('-'))
-    console.log(saveData)
+
 
     // let tabVal = document.querySelector('table');
     // let cv = tabVal.getElementsByTagName('input')
@@ -26,7 +23,6 @@ function watched(){
     //     console.log(tabVal)
     //     console.log(tabVal[i])
     // }
-}
 
 document.getElementById('new').addEventListener('click', () => { newRow() });
 

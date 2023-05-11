@@ -2,6 +2,7 @@
 let date;
 let rEvent;
 let sEvent;
+let eWatched = false;
 function buttonSeries() {
     let value = document.getElementsByName('new');
     for (let i = 0; i < value.length; i++) {
@@ -29,7 +30,7 @@ function buttonSeries() {
             let datStr = date.toString()
 
             //combine data
-            let strSav = serStr + '-' + datStr + '-' + rEvent + '-' + sEvent
+            let strSav = serStr + '-' + datStr + '-' + rEvent + '-' + sEvent+ '-' +eWatched;
 
             //save data
             saveData.push(strSav)

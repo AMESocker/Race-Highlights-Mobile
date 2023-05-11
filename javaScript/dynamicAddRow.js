@@ -1,5 +1,5 @@
 //----Dynamic Add Row--------
-function raceEvent(sx, ed, rv, rs) {
+function raceEvent(sx, ed, rv, rs,wv) {
     let logoImage = logo[sx].image
     const edNs = ed.replace(' ','')
     // console.log(edNs)
@@ -27,7 +27,9 @@ function raceEvent(sx, ed, rv, rs) {
     g.innerHTML = rs
     b.appendChild(h);
     h.appendChild(i);
-    i.type = "checkbox"
+    i.type = "checkbox";
+    i.checked = wv
+    i.setAttribute('class','checkbox')
     i.setAttribute('id',j)
     i.setAttribute('onclick','watched()')
 
