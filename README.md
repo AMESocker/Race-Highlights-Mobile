@@ -10,10 +10,10 @@ There is no installation necessary. At the moment there is no delete function fo
 
 ## Usage
 
-    Currently each event needs to be added manually. This is done by clicking on the plus symbol in the top right of the screen.
-    Select the series, date, event/location, and session. Then click the add button.
+Currently each event needs to be added manually. This is done by clicking on the plus symbol in the top right of the screen.
+Select the series, date, event/location, and session. Then click the add button.
 
-    Once these are added they are saved to local storage. Upon re-load of the page all of the data is still present on the page including the watched checkmark.
+Once these are added they are saved to local storage. Upon re-load of the page all of the data is still present on the page including the watched checkmark.
 
 ## Future Development
 
