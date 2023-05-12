@@ -15,10 +15,17 @@ Select the series, date, event/location, and session. Then click the add button.
 
 Once these are added they are saved to local storage. Upon re-load of the page all of the data is still present on the page including the watched checkmark.
 
+## Challenges
+
+I had thought of this concept a while ago when I saw a race calendar app. I originally wanted to import an ics formatted calendar data and go from there. I came back to the project and started to develop the project from the html side. This way I could manually add races and track them before I can figure out how to import and parse the ics data.
+
+The most challenging part of the project was saving the data. At first I did not remember JSON stringify and parse. So I was manipulating the data in cumbersome was to save and load the data. Writing the code again to use JSON and not break it was the most challenging aspect so far. 
+
+
 ## Future Development
 
-A delete function for individual entries.
-A function to collapse the add selections without adding an event.
-Sort entries by series and date.
-A separate view for watched and not watched entries.
-An ics format import to populate table.
+- A delete function for individual entries.
+- A function to collapse the add selections without adding an event.
+- Sort entries by series and date.
+- A separate view for watched and not watched entries.
+- An ics format import to populate table.

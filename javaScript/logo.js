@@ -28,8 +28,9 @@ let logo = [
     }, {
         series: 'W2RC',
         image: 'https://upload.wikimedia.org/wikipedia/en/d/d2/World_Rally-Raid_Championship_logo.png'
-    }, {
-        series: 'SuperMotoCross',
-        image: 'https://www.supermotocross.com/wp-content/uploads/2023/01/SMX-League-Logo.png'
-    }
+    }, 
+    // {
+    //     series: 'SuperMotoCross',
+    //     image: 'https://www.supermotocross.com/wp-content/uploads/2023/01/SMX-League-Logo.png'
+    // }
 ]
