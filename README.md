@@ -1,6 +1,6 @@
 # Race Highlights Mobile
 
-A mobile aspect page which events in a race series can be added and tracked.
+A mobile aspect page which tracks events in a race series which can be added and saved.
 
 [Live Site](https://amesocker.github.io/Race-Highlights-Mobile/)
 
