@@ -13,9 +13,9 @@ function watched(){
     for (let i = 0; i < jsonDataG.length; i++) {
         jsonDataG[i].watched = l[i].checked
         eWatched[i] = l[i].checked
-        console.log(eWatched)
-        console.log(jsonDataG[i].watched)
-        console.log(l[i].checked)
+        // console.log(eWatched)
+        // console.log(jsonDataG[i].watched)
+        // console.log(l[i].checked)
         
         // saveData = saveData[i]+ '-' +eWatched[i];
     }    

@@ -27,12 +27,13 @@ let watchedValue;
 document.getElementById('new').addEventListener('click', () => { newRow() });
 
 function newRow() {
-    buttonSeries()
+    buttonJsonSeries()
 }
 
 function modalLabels() {
     let x = document.getElementById('addEvent')
-    console.log(!x)
+    // console.log(x.style.display == 'contents')
+
     a.setAttribute('style', 'display:contents')
 }
 

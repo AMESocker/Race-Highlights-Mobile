@@ -42,6 +42,7 @@ console.log(jDGS);
 let savedJSONData = localStorage.getItem("JSON Race Event",saveData);
 if (savedJSONData){
     let pSJData = JSON.parse(savedJSONData)
+    jsonDataG = pSJData
     for (let i = 0; i < pSJData.length; i++) {
         console.log(pSJData[i].series)
         
