@@ -30,11 +30,23 @@ function newRow() {
     buttonJsonSeries()
 }
 
+let show = 0
 function modalLabels() {
-    let x = document.getElementById('addEvent')
+    let x = document.getElementById('add')
     // console.log(x.style.display == 'contents')
-
+//const a = document.getElementById('addEvent');
+if(show == 0){
     a.setAttribute('style', 'display:contents')
+    show = 1
+    x.innerHTML = '&ndash;'
+    console.log(show)
+}else if (show == 1) {
+    a.setAttribute('style', 'display:none')
+    show = 0
+    x.innerHTML = '+'
+    console.log(show) 
+}
+
 }
 
 //----Delete Event----
